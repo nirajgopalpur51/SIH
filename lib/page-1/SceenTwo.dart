@@ -1,9 +1,16 @@
+import 'dart:developer';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
+import 'package:get/get.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/page-1/Login%20Screen.dart';
-import 'package:myapp/utils.dart';
+
+import 'articlePage.dart';
+// import 'package:myapp/utils.dart';
 
 class ScreenTwo extends StatefulWidget {
   const ScreenTwo({Key? key}) : super(key: key);
@@ -13,6 +20,15 @@ class ScreenTwo extends StatefulWidget {
 }
 
 class _ScreenTwoState extends State<ScreenTwo> {
+  TextEditingController userNameController=TextEditingController();
+  TextEditingController userLastNameController=TextEditingController();
+  TextEditingController userEmailController=TextEditingController();
+  TextEditingController userPhoneController=TextEditingController();
+  TextEditingController userPasswordController=TextEditingController();
+  TextEditingController userConfirmPasswordController=TextEditingController();
+
+
+  User ? currentUser=FirebaseAuth.instance.currentUser;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -79,6 +95,7 @@ class _ScreenTwoState extends State<ScreenTwo> {
                             Row(children: [
                               Expanded(
                                 child: TextFormField(
+                                  controller: userNameController,
                                   keyboardType: TextInputType.emailAddress,
                                   decoration: InputDecoration(
                                     contentPadding: EdgeInsets.fromLTRB(20.0, 0.0, 5.0, 20.0),
@@ -93,6 +110,7 @@ class _ScreenTwoState extends State<ScreenTwo> {
 
                               Expanded(
                                 child: TextFormField(
+                                  controller: userLastNameController,
                                   keyboardType: TextInputType.emailAddress,
                                   decoration: InputDecoration(
                                     contentPadding: EdgeInsets.fromLTRB(20.0, 0.0, 5.0, 20.0),
@@ -113,6 +131,7 @@ class _ScreenTwoState extends State<ScreenTwo> {
                               Row(children: [
                                 Expanded(
                                   child: TextFormField(
+                                    controller: userEmailController,
                                     keyboardType: TextInputType.emailAddress,
                                     decoration: InputDecoration(
                                       contentPadding: EdgeInsets.fromLTRB(20.0, 0.0, 5.0, 20.0),
@@ -127,6 +146,7 @@ class _ScreenTwoState extends State<ScreenTwo> {
 
                                 Expanded(
                                   child: TextFormField(
+                                    controller: userPhoneController,
                                     keyboardType: TextInputType.emailAddress,
                                     decoration: InputDecoration(
                                       contentPadding: EdgeInsets.fromLTRB(20.0, 0.0, 5.0, 20.0),
@@ -147,6 +167,7 @@ class _ScreenTwoState extends State<ScreenTwo> {
                               Row(children: [
                                 Expanded(
                                   child: TextFormField(
+                                    controller: userPasswordController,
                                     keyboardType: TextInputType.emailAddress,
                                     decoration: InputDecoration(
                                       contentPadding: EdgeInsets.fromLTRB(20.0, 0.0, 5.0, 20.0),
@@ -161,6 +182,7 @@ class _ScreenTwoState extends State<ScreenTwo> {
 
                                 Expanded(
                                   child: TextFormField(
+                                    controller: userConfirmPasswordController,
                                     keyboardType: TextInputType.emailAddress,
                                     decoration: InputDecoration(
                                       contentPadding: EdgeInsets.fromLTRB(20.0, 0.0, 5.0, 20.0),
@@ -173,7 +195,37 @@ class _ScreenTwoState extends State<ScreenTwo> {
                         ),
                         SizedBox(height: 20,),
                         ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () async{
+                            var userName=userNameController.text.toString().trim();
+                            var userPhone=userPhoneController.text.toString().trim();
+                            var userEmail=userEmailController.text.toString().trim();
+                            var userPassword=userPasswordController.text.toString().trim();
+
+                            await FirebaseAuth.instance.createUserWithEmailAndPassword(
+                                email: userEmail,
+                                password: userPassword
+                            ).then((value) => {
+                            Get.to(() => article())
+                              // signUpUser(
+                              //   userName,
+                              //   userPhone,
+                              //   userEmail,
+                              //   userPassword,
+                              // ),
+                              //
+                              // FirebaseFirestore.instance.collection("users")
+                              //     .doc(currentUser!.uid.toString()).set({
+                              //   "password" : userPassword,
+                              //   "username":userName,
+                              //   "userPhone":userPhone,
+                              //   "userEmail":userEmail,
+                              //   "createdAt":DateTime.now().toString(),
+                              //   "userId":currentUser!.uid.toString(),
+                              //
+                              // }),
+                              // log("user edit"),
+                            });
+                          },
                           style: ElevatedButton.styleFrom(
                             primary: Colors.black, // Background color
                           ),

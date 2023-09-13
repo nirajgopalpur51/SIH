@@ -38,6 +38,11 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   google_fonts: ^5.1.0
+  firebase_core: ^2.8.0
+  firebase_auth: ^4.3.0
+  cloud_firestore: ^4.5.1
+  firebase_database: ^10.1.0
+  get: ^4.6.5
 
 dev_dependencies:
   flutter_test:
@@ -67,118 +72,6 @@ flutter:
   #   - images/a_dot_ham.jpeg
   assets:
      - assets/page-1/images/
-#    - assets/page-1/images/vector.png
-#    - assets/page-1/images/vector-Jd7.png
-#    - assets/page-1/images/vector-7WZ.png
-#    - assets/page-1/images/vector-x8Z.png
-#    - assets/page-1/images/star.png
-#    - assets/page-1/images/star-wXf.png
-#    - assets/page-1/images/lawyer-keywords-1-bg.png
-#    - assets/page-1/images/vector-yys.png
-#    - assets/page-1/images/vector-RCM.png
-#    - assets/page-1/images/vector-yh3.png
-#    - assets/page-1/images/icon-other-delete.png
-#    - assets/page-1/images/donought-chart.png
-#    - assets/page-1/images/auto-group-ceek.png
-#    - assets/page-1/images/chevron-circle-down.png
-#    - assets/page-1/images/vector-JF3.png
-#    - assets/page-1/images/associatedphoto.png
-#    - assets/page-1/images/associatedphoto-XFX.png
-#    - assets/page-1/images/chevron-circle-down-AqX.png
-#    - assets/page-1/images/associatedphoto-Ha1.png
-#    - assets/page-1/images/group-3.png
-#    - assets/page-1/images/vector-Cws.png
-#    - assets/page-1/images/hand.png
-#    - assets/page-1/images/vector-S5X.png
-#    - assets/page-1/images/bell.png
-#    - assets/page-1/images/bell-chf.png
-#    - assets/page-1/images/vector-7aH.png
-#    - assets/page-1/images/star-R5B.png
-#    - assets/page-1/images/star-WNu.png
-#    - assets/page-1/images/vector-M4V.png
-#    - assets/page-1/images/vector-gcZ.png
-#    - assets/page-1/images/associatedphoto-Rq3.png
-#    - assets/page-1/images/icon-other-edit.png
-#    - assets/page-1/images/associatedphoto-A1w.png
-#    - assets/page-1/images/star-KfX.png
-#    - assets/page-1/images/star-5ub.png
-#    - assets/page-1/images/group-3-FJH.png
-#    - assets/page-1/images/star-4w3.png
-#    - assets/page-1/images/polygon-1.png
-#    - assets/page-1/images/associatedphoto-UHo.png
-#    - assets/page-1/images/vector-DWH.png
-#    - assets/page-1/images/associatedphoto-aLq.png
-#    - assets/page-1/images/vector-62u.png
-#    - assets/page-1/images/mask-group.png
-#    - assets/page-1/images/chevron-circle-down-otM.png
-#    - assets/page-1/images/mask-group-GYy.png
-#    - assets/page-1/images/vector-zvD.png
-#    - assets/page-1/images/vector-sCu.png
-#    - assets/page-1/images/roundedlineactive.png
-#    - assets/page-1/images/vector-uoo.png
-#    - assets/page-1/images/vector-GeM.png
-#    - assets/page-1/images/associatedphoto-RXF.png
-#    - assets/page-1/images/vector-z4Z.png
-#    - assets/page-1/images/associatedphoto-uhK.png
-#    - assets/page-1/images/associatedphoto-ZWy.png
-#    - assets/page-1/images/bell-Wx1.png
-#    - assets/page-1/images/vector-fpu.png
-#    - assets/page-1/images/group-3-Qhw.png
-#    - assets/page-1/images/bell-4nV.png
-#    - assets/page-1/images/mask-group-EgH.png
-#    - assets/page-1/images/vector-nSu.png
-#    - assets/page-1/images/associatedphoto-k8q.png
-#    - assets/page-1/images/vector-Z6H.png
-#    - assets/page-1/images/associatedphoto-zDX.png
-#    - assets/page-1/images/star-YVw.png
-#    - assets/page-1/images/chevron-circle-down-f7w.png
-#    - assets/page-1/images/vector-Zj7.png
-#    - assets/page-1/images/associatedphoto-jso.png
-#    - assets/page-1/images/associatedphoto-zoj.png
-#    - assets/page-1/images/vector-sGV.png
-#    - assets/page-1/images/group-181.png
-#    - assets/page-1/images/associatedphoto-MYD.png
-#    - assets/page-1/images/vector-PFF.png
-#    - assets/page-1/images/associatedphoto-jK7.png
-#    - assets/page-1/images/bell-Jeu.png
-#    - assets/page-1/images/vector-Qed.png
-#    - assets/page-1/images/associatedphoto-ZnR.png
-#    - assets/page-1/images/vector-FsX.png
-#    - assets/page-1/images/chevron-circle-down-RGD.png
-#    - assets/page-1/images/menu.png
-#    - assets/page-1/images/vector-sR3.png
-#    - assets/page-1/images/image.png
-#    - assets/page-1/images/vector-aXb.png
-#    - assets/page-1/images/star-cob.png
-#    - assets/page-1/images/associatedphoto-uQd.png
-#    - assets/page-1/images/associatedphoto-g4h.png
-#    - assets/page-1/images/auto-group-ru2j.png
-#    - assets/page-1/images/group-3-BwX.png
-#    - assets/page-1/images/vector-hgu.png
-#    - assets/page-1/images/vector-CsB.png
-#    - assets/page-1/images/associatedphoto-TKF.png
-#    - assets/page-1/images/vector-2dF.png
-#    - assets/page-1/images/chevron-circle-down-fCM.png
-#    - assets/page-1/images/associatedphoto-Vm3.png
-#    - assets/page-1/images/mask-group-sNH.png
-#    - assets/page-1/images/vector-sf7.png
-#    - assets/page-1/images/auto-group-tnbz.png
-#    - assets/page-1/images/vector-om3.png
-#    - assets/page-1/images/roundedlineactive-CAu.png
-#    - assets/page-1/images/star-rk9.png
-#    - assets/page-1/images/vector-ZU5.png
-#    - assets/page-1/images/chevron-circle-down-38M.png
-#    - assets/page-1/images/auto-group-pqib.png
-#    - assets/page-1/images/group-3-a8H.png
-#    - assets/page-1/images/vector-5DT.png
-#    - assets/page-1/images/vector-j9s.png
-#    - assets/page-1/images/associatedphoto-QDP.png
-#    - assets/page-1/images/associatedphoto-ZNy.png
-#    - assets/page-1/images/associatedphoto-ouT.png
-#    - assets/page-1/images/vector-D1s.png
-#    - assets/page-1/images/vector-1E1.png
-#    - assets/page-1/images/african-american-employer-holding-employment-agreement-handshaking-candidate-close-up-view-1-bg.png
-#    - assets/page-1/images/associatedphoto-5bF.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

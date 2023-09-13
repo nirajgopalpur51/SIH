@@ -1,5 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:myapp/page-1/articlePage.dart';
 
 import 'SceenTwo.dart';
 
@@ -11,6 +14,8 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  TextEditingController loginEmailController = TextEditingController();
+  TextEditingController loginPasswordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,6 +56,7 @@ class _LoginState extends State<Login> {
                 ),),
                 SizedBox(height: 10,),
                 TextFormField(
+                  controller: loginEmailController,
                   cursorColor: Colors.black,
                   keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
@@ -68,8 +74,9 @@ class _LoginState extends State<Login> {
                 ),),
                 SizedBox(height: 10,),
                 TextFormField(
+                  controller: loginPasswordController,
                   cursorColor: Colors.black,
-                  keyboardType: TextInputType.emailAddress,
+                  keyboardType: TextInputType.text,
                   decoration: InputDecoration(
                     filled: true,
                     floatingLabelBehavior: FloatingLabelBehavior.never,
@@ -94,7 +101,25 @@ class _LoginState extends State<Login> {
                 SizedBox(height: 20,),
                 Center(
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () async{
+                      var loginEmail =
+                      loginEmailController.text.toString().trim();
+                      var loginPassword =
+                      loginPasswordController.text.toString().trim();
+                      try {
+                        final User? firebaseuser = (await FirebaseAuth.instance
+                            .signInWithEmailAndPassword(
+                        email: loginEmail, password: loginPassword))
+                          .user;
+                      if (firebaseuser != null) {
+                      Get.to(() => article());
+                      } else {
+                      print("check Email and Password");
+                      }
+                      } on FirebaseAuthException catch (e) {
+                      print("Error $e");
+                      }
+                    },
                     style: ElevatedButton.styleFrom(
                       primary: Colors.black, // Background color
                     ),
